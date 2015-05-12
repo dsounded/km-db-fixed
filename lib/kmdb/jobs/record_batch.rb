@@ -31,7 +31,7 @@ module KMDB
 
         @batch.events.each do |event|
           # reject non-whitelisted events
-          #next unless event['_n'].nil? || WhitelistedEvent.include?(event['_n'])
+          next
 
           # reject ignored users 
           next if IgnoredUser.include?(event['_p']) ||

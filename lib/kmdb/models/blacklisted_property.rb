@@ -3,9 +3,11 @@ require 'active_record'
 require 'set'
 
 module KMDB
-  class BlacklistedProperty < ActiveRecord::Base
+  class WhitelistedEvent < ActiveRecord::Base
     module ClassMethods
+
       def include?(name)
+        return true if _data.empty?
         _data.include?(name)
       end
 

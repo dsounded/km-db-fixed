@@ -5,7 +5,9 @@ require 'set'
 module KMDB
   class WhitelistedEvent < ActiveRecord::Base
     module ClassMethods
+
       def include?(name)
+        return true if _data.empty?
         _data.include?(name)
       end
 

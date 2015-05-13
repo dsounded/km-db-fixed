@@ -25,7 +25,7 @@ module KMDB
       sql_values = []
 
       hash.each_pair do |prop_name,value|
-        next if BlacklistedProperty.include?(prop_name)
+        #next if BlacklistedProperty.include?(prop_name)
         key = Key.get(prop_name)
         value = value[0...255].scrub
         sql_values << sanitize_sql_array(['(?,?,?,?,?)', stamp,user.id,event_id,key,value])

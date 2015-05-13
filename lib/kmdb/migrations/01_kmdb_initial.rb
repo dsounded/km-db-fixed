@@ -39,12 +39,12 @@ class KmdbInitial < ActiveRecord::Migration
     add_index :properties, [:user_id, :key, :t]
 
     create_table :users do |t|
-      t.string  :name, limit: 48
+      t.string  :name, limit: 100
     end
     add_index :users, [:name],          using: :hash, unique: true
 
     create_table :ignored_users do |t|
-      t.string :name, limit: 48
+      t.string :name, limit: 100
     end
 
     create_table :whitelisted_events do |t|
@@ -52,8 +52,8 @@ class KmdbInitial < ActiveRecord::Migration
     end
 
     create_table :aliases do |t|
-      t.string   :name1, limit: 48
-      t.string   :name2, limit: 48
+      t.string   :name1, limit: 100
+      t.string   :name2, limit: 100
       t.datetime :t
     end
     # add_index :aliases, [:name1, :name2], using: :hash, unique: true
